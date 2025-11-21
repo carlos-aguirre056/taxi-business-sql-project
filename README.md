@@ -1,9 +1,14 @@
-# Taxi-Business-SQL-Project
-**Simulated Data-Analysis Case Study**
+# Taxi Business Relational Database (3NF) — SQL Portfolio Project
+*A realistic SQL Server project simulating the operations, payments, vehicles, expenses, and usual queries inside a taxi business*
 
 ## English
 
-## 🚕 **OVERVIEW**
+## 🎯 Project Objectives
+- Practice SQL Server skills in a realistic business environment.
+- Demonstrate my ability to design 3NF relational databases and write efficient queries.
+- Build a database model that I can later adapt to the real taxi business operations.
+
+## 🚕 **Business Context Overview**
 
 This is a simulated data-analysis project for a taxi business.  
 It includes:
@@ -15,8 +20,8 @@ It includes:
 
 👉 **All data shown here is fictional; however, the scenarios are loosely inspired by real operational processes of a taxi business.**
 
-The goal of this repository is to document my SQL learning journey by applying concepts to a structured, business-like scenario that resembles real operations without using real data.
-
+**Why this project matters**
+This project replicates the type of relational structure required to run a real taxi fleet, including payments, drivers, vehicles, maintenance, and operational accounting. Additionally, it sets the base to actually set the entire database operation in SQL Server.
 
 ## 🚦 **FEATURES OF THE PROJECT**
 
@@ -253,54 +258,249 @@ id_car (FK → cars.id_car)
 start_date
 end_date
 ```
----
+
+------------------------------------------
+
+# Base de Datos Relacional para Negocio de Taxis (3NF) — Proyecto de Portafolio SQL
+*Proyecto de portafolio en SQL Server que modela de forma realista las operaciones, pagos, vehículos, gastos y consultas habituales de un negocio de taxis.*
 
 ## Español
 
-🚕 **RESUMEN**
+## 🎯 Objetivos del Proyecto
+- Practicar habilidades de SQL Server en un entorno de negocio realista.  
+- Demostrar mi capacidad para diseñar bases de datos relacionales en 3NF y escribir consultas eficientes.  
+- Construir un modelo de base de datos que pueda adaptarse posteriormente a las operaciones reales de un negocio de taxis.  
+
+## 🚖 Contexto del Negocio
 
 Este es un proyecto simulado de análisis de datos para un negocio de taxis.  
 Incluye:
 
-- Un conjunto de datos ficticio
-- Consultas SQL básicas e intermedias
-- Un escenario inspirado en procesos operativos comunes
-- Notas paso a paso para practicar análisis de datos reales
+- Un conjunto de datos ficticio  
+- Consultas SQL básicas e intermedias (SELECT, JOINs, agreggations, CASE)  
+- Escenarios inspirados en procesos operativos reales y cotidianos en un negocio de taxi  
+- Notas paso a paso para practicar el pensamiento analítico en situaciones reales  
 
-👉 **Todos los datos mostrados son ficticios. Sin embargo, los escenarios están inspirados de manera general en procesos operativos reales de un negocio de taxis.**
+👉 **Todos los datos mostrados son ficticios. Sin embargo, los escenarios están inspirados de manera general en procesos reales de un negocio de taxis.**
 
-El objetivo del repositorio es documentar mi aprendizaje en SQL aplicando conceptos a un caso estructurado que se parece a operaciones reales, pero sin usar datos reales.
+**¿Por que este proyecto es útil?**
+Este proyecto replica el tipo de estructura relacional necesaria en una base de datos para administrar una flota de taxis, incluyendo pagos, conductores, vehículos, mantenimiento y contabilidad operativa. Además, establece la base para implementar toda la operación de la base de datos en SQL Server.
 
-🚦 **CARACTERISTICAS DEL PROYECTO**
+## 🚦 **CARACTERISTICAS DEL PROYECTO**
 
-- Base de datos simulada completa con 6 tablas basadas en procesos reales de un negocio de taxis.
+Base de datos SQL simulada, diseñada para reflejar de forma realista los procesos operativos de un negocio de taxis.
 
-- Esquema SQL diseñado desde cero, siguiendo buenas prácticas de modelado relacional.
+- Base de datos completa: 6 módulos operativos con más de 10 tablas relacionales, modeladas según el flujo real de un servicio de taxis.
 
-- Scripts SQL incluidos: CREATE TABLE, inserts y consultas operativas.
+- Esquema SQL construido desde cero, siguiendo buenas prácticas de normalización y modelado relacional.
 
-- Consultas típicas de uso diario, como:
+- Scripts incluidos: CREATE TABLE, INSERT y consultas operativas listas para ejecutarse.
 
-    - Cuentas atrasadas por chofer
+- Consultas de uso diario, como:
+        - Pagos atrasados por conductor: deteccion rapida de adeudos.
+        - Gastos por vehículo: desglose y seguimiento por unidad.
+        - Ingresos diarios, semanales y mensuales: consolidación por periodos.
+        - Información clave para trámites gubernamentales  mensuales, anuales y ambientales.
+        - Historial mecánico por unidad: costos totales por vehiculo o rango de fechas.
 
-    - Gastos por carro
+- Ejercicios para practicar análisis de datos
+        - JOINS
+        - Filtros por fecha
+        - Window functions (Rankings, totales, tendencias)
+        - Agregaciones por día/semana/mes
 
-    - Ingresos diarios, semanales y mensuales
+- Conjunto de datos ficticio: suficientemente realista para análisis, sin exponer información personal.
 
-    - Recuperarion de informaciÓn clave para trámites gubernamentales mensuales y anuales
+- Documentación paso a paso que explica cómo se construyó la base de datos y cómo funcionan las consultas.
 
-    - Historial mecánico por unidad y costos totales por carro o período de tiempo
+## 📚 DESCRIPCIÓN GENERAL DEL ESQUEMA DE LA BASE DE DATOS
 
-- Ejercicios de análisis de datos para practicar:
+Este proyecto contiene 6 módulos principales, cada uno modelado a partir de las libretas operativas fisicas y procesos reales de un negocio de taxis.
 
-    - JOINs
+Para mantener el sistema limpio, escalable y en Tercera Forma Normal (3NF), la información fue reorganizada en tablas relacionales con llaves primarias (PK), llaves foráneas (FK) y una lógica que evita repetición de datos.
 
-    - Filtrado por fechas
+Cada subsección describe:
 
-    - Ventanas analíticas (ranking, acumulados, tendencias)
+- Qué representa cada tabla
 
-    - Agregaciones por día/semana/mes
+- Qué función cumple en el negocio real
 
-- Dataset completamente ficticio, suficientemente realista para poder analizar procesos sin revelar información personal real.
+- Sus columnas clave
 
-- Documentación paso a paso explicando cómo se construye la base y cómo usar las consultas.
+- Por qué su estructura es importante en un modelo relacional
+
+### 🔗 Resumen de Relaciones (Visión General del Modelo Relacional)
+```
+- cars ↔ car_account_control  
+  Un automóvil puede muchos registros financieros diarios; cada registro pertenece a un solo automóvil.
+
+- drivers ↔ car_account_control  
+  Un conductor puede aparecer en múltiples registros diarios.
+
+- cars ↔ daily_control  
+  Un automóvil genera muchas entradas de ingresos diarios.
+
+- drivers ↔ daily_control  
+  Un conductor puede estar en muchos registros diarios.
+
+- cars ↔ car_expenses  
+  Un automóvil tiene un historial completo de gastos, mantenimiento y reparaciones.
+
+- concessionaires ↔ taxis  
+  Un concesionario puede tener varios taxis registrados.
+
+- cars ↔ taxis  
+  Cada registro en taxis corresponde exactamente a un automóvil.
+
+- drivers ↔ driver_data  
+  Cada conductor tiene un solo perfil administrativo.
+
+- drivers ↔ driver_vehicle_history  
+  Un conductor puede estar asignado a distintos autos a lo largo del tiempo.
+
+- cars ↔ driver_vehicle_history  
+  Un automóvil puede tener múltiples conductores durante su vida operativa.
+```
+
+### 1️⃣ Control de Cuenta por Vehículo
+Registro financiero diario para cada unidad, incluyendo el pago de cuenta que entrega el conductor, saldos pendientes, abonos parciales y cualquier gasto relacionado.
+*Basado en el cuaderno físico donde cada página representaba a un solo automóvil.*
+
+#### Tablas:
+
+##### **cars**
+Información básica de cada vehículo:
+```
+id_car (PK)
+license_plate
+model
+year
+```
+
+##### **drivers**
+Registro completo de conductores activos e históricos.
+```
+id_driver (PK)
+full_name
+phone_number
+*Otros campos administrativos*
+```
+
+##### **car_account_control**
+Bitácora diaria de movimientos financieros por unidad.
+```
+id_control (PK)
+id_car (FK → cars.id_car)
+id_driver (FK → drivers.id_driver)
+operation_date
+fare_amount
+delivery_date
+partial_payment
+outstanding_balance
+daily_expenses
+```
+
+### 2️⃣ Control Diario
+Permite visualizar el desempeño global del día:
+ingresos totales, qué conductor entregó qué cantidad y los gastos generales.
+*Basado en la libreta física donde cada día se listaban todos los autos con sus respectivos conductores.*
+
+#### Tablas:
+
+##### daily_control
+```
+id_record (PK)
+date
+id_car (FK → cars.id_car)
+id_driver (FK → drivers.id_driver)
+daily_amount
+notes
+```
+
+##### daily_expenses
+```
+id_expense (PK)
+date
+concept
+amount
+id_car (FK → cars.id_car)
+```
+
+### 4️⃣ Ingresos Semanales
+Hoja consolidada por semana que muestra los ingresos, egresos y el balance total de cada día de la semana.
+Útil para el control financiero y la conciliación semanal del dinero recibido y gastado.
+*Basado en los cuadernos semanales donde se registraban ingresos diarios, ingresos semanales, egresos y totales.*
+
+#### Tablas:
+
+##### weekly_consolidated
+```
+id_day (PK)
+date
+total_received
+total_spent
+daily_total
+weekly_total
+```
+
+### 5️⃣ Registro General de Taxis y Concesionarios
+Información administrativa y legal utilizada para renovaciones, trámites anuales y requerimientos oficiales.
+*Basado en los compendios físicos que almacenan la documentación de vehículos y concesionarios.*
+
+#### Tablas:
+##### taxis
+```
+id_car (PK)
+license_plate
+year
+vin_number
+id_concession_holder (FK → concessionaires.id_concession_holder)
+authorization_number
+insurance_policy_number
+insurance_company
+```
+
+#### concessionaires
+```
+id_concession_holder (PK)
+full_name
+street
+street_number
+neighborhood
+postal_code
+town
+municipality
+```
+
+### 6️⃣ Base de Datos de Conductores
+Perfil administrativo completo de cada conductor, incluyendo documentos legales, datos de contacto de emergencia, contexto de vivienda e historial laboral.
+*Basado en la carpeta digital que se mantiene para cada conductor.*
+
+#### Tablas:
+
+##### **driver_data**
+```
+id_driver (PK y FK → drivers.id_driver)
+age
+cellphone
+address
+housing_status
+housing_description
+emergency_contact_number
+emergency_contact_relationship
+work_history
+previous_employer_contact
+current_car (FK → cars.id_car)
+license_expiration
+driver_badge_expiration
+```
+
+#### **driver_vehicle_history**
+Para llevar un registro exacto de cada vehículo que ha utilizado un conductor.
+```
+history_id (PK)
+id_driver (FK → drivers.id_driver)
+id_car (FK → cars.id_car)
+start_date
+end_date
+```
