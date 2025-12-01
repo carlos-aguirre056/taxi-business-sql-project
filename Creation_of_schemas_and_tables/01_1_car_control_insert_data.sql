@@ -1,3 +1,4 @@
+--Insert of data to table "cars"
 BEGIN TRANSACTION;
 
 BEGIN TRY
@@ -52,6 +53,63 @@ END TRY
 BEGIN CATCH
     ROLLBACK TRANSACTION;
        SELECT
+        ERROR_NUMBER()  AS ErrorNumber,
+        ERROR_MESSAGE() AS ErrorMessage,
+        ERROR_LINE()    AS ErrorLine;
+
+END CATCH;
+GO
+_______________________________________________________________________________________________________
+
+--Insert of data to table "drivers"
+	
+BEGIN TRANSACTION;
+
+BEGIN TRY
+	INSERT INTO car_control.drivers
+	(full_name, phone_number)
+	VALUES
+('Victor Hugo Ambriz Parra','7713449789'),
+('Raul Antonio Garcia Cruz','7712385850'),
+('Jorge Luis Mendoza Torres','7714598832'),
+('Carlos Alberto Rios Suarez','7715126674'),
+('Jose Manuel Torres Garcia','7717441298'),
+('Marco Antonio Perez Ortiz','7716894521'),
+('Luis Fernando Sanchez Lara','7719037764'),
+('Miguel Angel Salgado Ruiz','7716559872'),
+('Ricardo Daniel Soto Vargas','7718421190'),
+('Hector Ivan Morales Pineda','7713902844'),
+('Juan Carlos Muñoz Herrera','7717283401'),
+('Alejandro Rosales Trejo','7719453328'),
+('Erick Eduardo Sandoval Rios','7716039127'),
+('David Alejandro Guzman Pozo','7712876649'),
+('Rogelio Hernandez Silva','7714429086'),
+('Mario Alberto Figueroa Diaz','7713982275'),
+('Ivan Alejandro Luna Perez','7717103498'),
+('Oscar Daniel Benitez Reyes','7718842301'),
+('Sergio Armando Medina Flores','7715298840'),
+('Francisco Javier Roldan Ruiz','7717361198'),
+('Gustavo Emilio Ramirez Cano','7719012295'),
+('Adrian Lopez Hurtado','7716648893'),
+('Cristian Omar Rivera Solis','7718824710'),
+('Fidel Alejandro Lopez Diaz','7712998543'),
+('Ruben Alberto Torres Mejia','7715301248'),
+('Manuel de Jesus Aguirre Razo','7717843290'),
+('Jonathan Alexis Garcia Rivas','7716124438'),
+('Diego Armando Flores Vela','7719482305'),
+('Hugo Daniel Nieto Vargas','7715503398'),
+('Brandon Isaac Gomez Lugo','7717369925'),
+('Luis Gerardo Salazar Ruiz','7718201994'),
+('Fernando Josue Montiel Cruz','7716338720'),
+('Javier Alonso Ramirez Luna','7714039801'),
+('German Ricardo Treviño Soto','7717225593')
+
+	COMMIT TRANSACTION;
+END TRY
+
+BEGIN CATCH
+	ROLLBACK TRANSACTION;
+	   SELECT
         ERROR_NUMBER()  AS ErrorNumber,
         ERROR_MESSAGE() AS ErrorMessage,
         ERROR_LINE()    AS ErrorLine;
