@@ -51,4 +51,10 @@ END TRY
 
 BEGIN CATCH
     ROLLBACK TRANSACTION;
+       SELECT
+        ERROR_NUMBER()  AS ErrorNumber,
+        ERROR_MESSAGE() AS ErrorMessage,
+        ERROR_LINE()    AS ErrorLine;
+
 END CATCH;
+GO
